@@ -1,28 +1,47 @@
 from django.shortcuts import render
 from django.shortcuts import render
 from django.conf import settings
-from instaclone.models import SignUp
-from instaclone.forms import SignUPFORM
+from instaclone.models import SignUp,login
+from instaclone.forms import SignUPFORM,Loginform
 
 def signup(request):
 	suform=SignUPFORM(request.POST)
 	print suform
 	print "method",request.method
 	if request.method=="GET":
+		print("inside get")
 		return render(request,"index.html" ,{})
 	elif request.method=="POST":
-		suname=request.POST.get("name")
-		print "suname",suname
-		suuser=request.POST.get("username")
-		suemail=request.POST.get("email")
-		supass=request.POST.get("password")
-		dict={
-		"name":suname,
-		"username":suuser,
-		"email":suemail,
-		"password":supass
+		print(suform.is_valid())
 
-		}
-		return render(request,"make.html" ,dict)
 
-#def signup(request):
+		# print("\n\n", request.POST.data, "\n\n")
+		print("\n\n", request.POST.get("username"), "\n\n")
+
+		if suform.is_valid():
+			print("form is valid!")
+			suname=request.POST.get("name")
+			print "suname",suname
+			suuser=request.POST.get("username")
+			print "suuser",suuser
+			suemail=request.POST.get("email")
+			print "suemail",suemail
+			supass=request.POST.get("password")
+			print "supass",supass
+			suform.save()
+			dict={
+			"suform":suform,
+			"name":suname,
+			"username":suuser,
+			"email":suemail,
+			"password":supass
+			}
+			return render(request,"make.html" ,dict)
+
+def login_user(request):
+	loginform=Loginform(request.POST)
+	instance=login.objects.all()
+	print "instance",instance
+	return render(request,"login.html",{})
+
+

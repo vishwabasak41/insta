@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from instaclone.views import signup
+from instaclone.views import signup,login_user
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^signup/',signup,name="signup")
+    url(r'^signup/',signup,name="signup"),
+    url(r'^login/',login_user,name="login_user")
 ]

@@ -1,4 +1,6 @@
 from __future__ import unicode_literals
+from datetime import datetime
+
 
 from django.db import models
 
@@ -8,6 +10,8 @@ class SignUp(models.Model):
 	name=models.CharField(max_length=120)
 	username=models.CharField(max_length=120)
 	password=models.CharField(max_length=40)
+	created=models.DateTimeField(default=datetime.now(),auto_now=False)
+	
 
 	def __unicode__(self):
 		return self.name

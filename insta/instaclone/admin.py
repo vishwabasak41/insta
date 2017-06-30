@@ -6,7 +6,7 @@ class SUadmin(admin.ModelAdmin):
 	list_display=["name"]
 	class Meta:
 		model=SignUp
-	form=SignUPFORM
+		form=SignUPFORM
 
 
 admin.site.register(SignUp,SUadmin) 

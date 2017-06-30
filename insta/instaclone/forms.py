@@ -1,5 +1,5 @@
 from django import forms
-from .models import SignUp
+from .models import SignUp,login
 
 
 
@@ -12,3 +12,10 @@ class SignUPFORM(forms.ModelForm):
 	        'password': forms.PasswordInput(),
 	    }
 		
+
+
+class Loginform(forms.ModelForm):
+	class Meta:
+		model=login
+		fields='__all__'
+
