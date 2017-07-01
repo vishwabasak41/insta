@@ -12,6 +12,7 @@ class SignUp(models.Model):
 	password=models.CharField(max_length=40)
 	createdon=models.DateTimeField(blank=True,null=True,auto_now_add=True)
 	updated=models.DateTimeField(auto_now=True,blank=True,null=True)
+	image=models.FileField(blank=True,null=True)
 
 
 	def __unicode__(self):

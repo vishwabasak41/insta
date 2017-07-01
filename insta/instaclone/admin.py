@@ -3,7 +3,7 @@ from.forms import  SignUPFORM,Loginform
 from .models import SignUp,login
 
 class SUadmin(admin.ModelAdmin):
-	list_display=["name","createdon","updated"]
+	list_display=["name","createdon","updated","image"]
 	model=SignUp
 	form=SignUPFORM
 

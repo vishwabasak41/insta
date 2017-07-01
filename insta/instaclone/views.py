@@ -28,13 +28,16 @@ def signup(request):
 			print "suemail",suemail
 			supass=request.POST.get("password")
 			print "supass",supass
+			suimage=request.POST.get("image")
+			print "suimage is",suimage
 			suform.save()
 			dict={
 			"suform":suform,
 			"name":suname,
 			"username":suuser,
 			"email":suemail,
-			"password":supass
+			"password":supass,
+			"image":suimage
 			}
 			return render(request,"make.html" ,dict)
 
