@@ -1,12 +1,19 @@
 from django.contrib import admin
-from.forms import  SignUPFORM
-from .models import SignUp
+from.forms import  SignUPFORM,Loginform
+from .models import SignUp,login
 
 class SUadmin(admin.ModelAdmin):
 	list_display=["name","createdon","updated"]
-	class Meta:
-		model=SignUp
-		form=SignUPFORM
+	model=SignUp
+	form=SignUPFORM
 
 
-admin.site.register(SignUp,SUadmin) 
+
+class LoginAdmin(admin.ModelAdmin):
+	list_display=["emailog"]
+	model=login
+	form=Loginform
+
+modes=[SignUp,login] 
+
+admin.site.register(modes)

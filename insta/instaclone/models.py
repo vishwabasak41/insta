@@ -25,3 +25,7 @@ class SignUp(models.Model):
 class login(models.Model):
 	emailog=models.EmailField()
 	password=models.CharField(max_length=120)
+
+
+	def __unicode__(self):
+		return self.emailog
