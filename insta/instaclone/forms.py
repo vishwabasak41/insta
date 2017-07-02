@@ -6,10 +6,10 @@ from .models import SignUp,login
 class SignUPFORM(forms.ModelForm):
 	class Meta:
 		model=SignUp
-		fields=['email','username','name','password',"image"]
+		fields='__all__'
 		#we can use exclude to exclude fields
 		widgets = {
-	        'password': forms.PasswordInput(),
+	        'password': forms.PasswordInput,
 	    }
 		
 

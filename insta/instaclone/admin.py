@@ -7,6 +7,7 @@ class SUadmin(admin.ModelAdmin):
 	model=SignUp
 	form=SignUPFORM
 
+admin.site.register(SignUp,SUadmin)
 
 
 class LoginAdmin(admin.ModelAdmin):
@@ -14,6 +15,5 @@ class LoginAdmin(admin.ModelAdmin):
 	model=login
 	form=Loginform
 
-modes=[SignUp,login] 
 
-admin.site.register(modes)
+admin.site.register(login,LoginAdmin)

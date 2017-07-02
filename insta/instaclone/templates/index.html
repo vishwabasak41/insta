@@ -18,7 +18,7 @@
                             <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>
                         </div>  
                         <div class="panel-body" >-->
-                            <form action="" class="form-horizontal" method="POST">{% csrf_token %}
+                            <form action="" class="form-horizontal" method="POST" enctype="multipart/form-data">{% csrf_token %}
                                 
                                 
                                     
@@ -51,7 +51,7 @@
                                     </div>
                                 </div>
                                  <div class="form-group">
-                                    <label for="icode" class="col-md-3 control-label">Invitation Code</label>
+                                    <label for="icode" class="col-md-3 control-label">Choosen Image</label>
                                     <div class="col-md-9">
                                         <input id="id_image" value="{{suform.image}}" name="image" type="file" />
                                     </div>
