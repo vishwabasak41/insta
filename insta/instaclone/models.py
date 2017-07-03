@@ -7,7 +7,7 @@ from django.db import models
 # Create your models here.
 class SignUp(models.Model):
 	email=models.EmailField(default=None)
-	user=models.ForeignKey(settings.AUTH_USER_MODEL,default=1)
+	
 	name=models.CharField(max_length=120)
 	username=models.CharField(max_length=120)
 	password=models.CharField(max_length=40)

@@ -13,6 +13,7 @@ def signup(request):
 		return render(request,"index.html" ,{})
 	elif request.method=="POST":
 		print suform.is_valid()
+		print request.FILES
 		if True:
 			print("form is valid!")
 			suname=request.POST.get("name")
@@ -23,7 +24,7 @@ def signup(request):
 			print "suemail",suemail
 			supass=request.POST.get("password")
 			print "supass",supass
-			suimage=request.POST.get("image")
+			suimage=request.FILES.get("image")
 			print "suimage is",suimage
 			suform.save()
 			dic={
@@ -33,7 +34,7 @@ def signup(request):
 			"email":suemail,
 			"password":supass,
 			"image":suimage,
-			"logged in":"lSigned In"
+			"logged_in":"SignedIn"
 
 			}
 			return render(request,"make.html" ,dic)
@@ -57,10 +58,14 @@ def login_user(request):
 				"loginform":loginform,
 				"emailog":emailog,
 				"password":password,
-				"logged in":"logged in"
+				"logged_in":"LOGGEDin"
 			}
 		return render(request,"login.html",d)
 
+
+#def logged_in(request):
+#	if request.user.is_autheticated():
+#			q
 
 
 
