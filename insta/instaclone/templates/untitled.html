@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+	<html>
+		<head>
+		<style>
+		#radio-2{
+			background-color:red;
+			color:white;
+
+		}
+		#radio-3{
+			background-image:url('Screenshot_2017-07-15-13-29-48-040_edited.jpg');
+
+		}
+		#radio-4{
+			background-image:url('Screenshot_2017-07-15-13-30-54-175_edited.jpg');
+		}
+
+		</style>
+		<body>
+			<ul>
+				<li id="song1">Demons</li>
+				<li id="song2">Trumpets</li>
+				<li id="song3">Scream&Shout</li>
+				<li id="song4">Fall to pieces</li>
+			</ul>
+
+			<h2>Try selecting different themes</h2>
+			<section id="first" class="section">
+			<div class="container">
+				<input type="radio" id="radio-1" name="group1" class="g2">
+				<label for="radio-1"><span class="radio">Happy<span></label>
+			</div>
+			<div class="container">
+				<input type="radio" name="group1" id="radio-2" class="g1">
+				<label for="radio-2"><span class="radio">Light</span></label>
+			</div>
+			<div class="container">
+				<input type="radio" name="group1" id="radio-3" class="g1">
+				<label for="radio-3"><span class="radio">Energetic</span></label>
+			</div>
+			<div class="container">
+				<input type="radio" name="group1" id="radio-4" class="g1">
+				<label for="radio-4"><span class="radio">Sad</span></label>
+
+
+
+</div>
+
+			<script src="jquery-2.2.0.js"></script>
+			<script>
+ $('#radio-1').change(function(){
+			 
+		$('body').css('background-color','red');
+</script>
+
+</body>
+</html>

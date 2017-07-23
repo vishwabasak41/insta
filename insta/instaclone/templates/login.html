@@ -1,10 +1,8 @@
 {% load staticfiles %}
 
-
-<!DOCTYPE html>
-<html lang="en">
+<html>
     <head> 
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1" -->
 		
 		<!-- Website CSS style -->
 		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -15,9 +13,9 @@
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 		
 		<!-- Google Fonts -->
-		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
-		    <link href='http://fonts.googleapis.com/css?family=Sofia' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css">
+		    <link href="http://fonts.googleapis.com/css?family=Sofia" rel="stylesheet" type="text/css">
 
 
 		<title>Login form</title>
@@ -32,13 +30,13 @@
 	            </div> 
 				<div class="main-login main-small">
 					<form class="form-horizontal" method="POST" action="" >{% csrf_token %}
-						
+						<!--/signup/-->
 						<div class="form-group">
 							<!--<label for="username" class="cols-sm-2 control-label">Username</label>-->
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-									<input type="text" name="emailog" value="{{ loginform.emailog }}" placeholder="Enter your Email"/>
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>Usernname
+									<input type="text" class="form-control" name="username" value="{{username}}" id="username"  placeholder="Enter your Email"/>
 								</div>
 							</div>
 						</div>
@@ -47,22 +45,13 @@
 							<!--<label for="password" class="cols-sm-2 control-label">Password</label>-->
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" value="{{ loginform.password }}" placeholder="Enter your Password"/>
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>Password
+									<input type="password" class="form-control" name="password" value="{{password}}" id="password"  placeholder="Enter your Password"/>
 								</div>
 							</div>
 						</div>
 
-						<!--<div class="form-group">
-							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
-								</div>
-							</div>
-						</div>-->
-                        <br>
+						                        <br>
 						<div class="form-group ">
 							<button type="submit" class="btn btn-primary btn-lg btn-block login-button animated">Log In</button>
 						</div>
@@ -71,7 +60,7 @@
 			</div>
 		</div>
 		<div class="login-register">
-	        <p id="already">Don't have an account? <a href="index.html">Sign Up</a></p>
+	        <p id="already">Don't have an account? <a href="/signup/">Sign Up</a></p>
 		</div>
          <script src="js/jquery.min.js"></script>
          <script src="js/bootstrap.min.js"></script>

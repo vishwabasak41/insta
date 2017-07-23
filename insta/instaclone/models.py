@@ -3,11 +3,11 @@ from __future__ import unicode_literals
 from django.conf import settings
 
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class SignUp(models.Model):
 	email=models.EmailField(default=None)
-	
 	name=models.CharField(max_length=120)
 	username=models.CharField(max_length=120)
 	password=models.CharField(max_length=40)
@@ -15,6 +15,7 @@ class SignUp(models.Model):
 	updated=models.DateTimeField(auto_now=True,blank=True,null=True)
 	image=models.FileField(blank=True,null=True)
 
+	
 
 	def __unicode__(self):
 		return self.name
@@ -25,10 +26,13 @@ class SignUp(models.Model):
 
 
 class login(models.Model):
-	user=models.ForeignKey(settings.AUTH_USER_MODEL,default=1)
-	emailog=models.EmailField()
+	username=models.CharField(max_length=120,blank=True,null=True)
 	password=models.CharField(max_length=120)
-
-
+	
 	def __unicode__(self):
-		return self.emailog
+		return self.username
+
+class upload(models.Model):
+	username=models.CharField(max_length=120)
+	image=models.FileField(blank=True,null=True)
+

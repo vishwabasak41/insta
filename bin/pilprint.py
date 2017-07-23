@@ -15,7 +15,6 @@ from __future__ import print_function
 import getopt
 import os
 import sys
-import subprocess
 
 VERSION = "pilprint 0.3/2003-05-05"
 
@@ -33,11 +32,10 @@ def description(filepath, image):
     return title + format % image.size + image.mode + ")"
 
 if len(sys.argv) == 1:
-    print("PIL Print 0.3/2003-05-05 -- print image files")
+    print("PIL Print 0.2a1/96-10-04 -- print image files")
     print("Usage: pilprint files...")
     print("Options:")
     print("  -c            colour printer (default is monochrome)")
-    print("  -d            debug (show available drivers)")
     print("  -p            print via lpr (default is stdout)")
     print("  -P <printer>  same as -p but use given printer")
     sys.exit(1)
@@ -48,8 +46,8 @@ except getopt.error as v:
     print(v)
     sys.exit(1)
 
-printerArgs = []  # print to stdout
-monochrome = 1    # reduce file size for most common case
+printer = None  # print to stdout
+monochrome = 1  # reduce file size for most common case
 
 for o, a in opt:
     if o == "-d":
@@ -62,10 +60,10 @@ for o, a in opt:
         monochrome = 0
     elif o == "-p":
         # default printer channel
-        printerArgs = ["lpr"]
+        printer = "lpr"
     elif o == "-P":
         # printer channel
-        printerArgs = ["lpr", "-P%s" % a]
+        printer = "lpr -P%s" % a
 
 for filepath in argv:
     try:
@@ -78,9 +76,8 @@ for filepath in argv:
             im.draft("L", im.size)
             im = im.convert("L")
 
-        if printerArgs:
-            p = subprocess.Popen(printerArgs, stdin=subprocess.PIPE)
-            fp = p.stdin
+        if printer:
+            fp = os.popen(printer, "w")
         else:
             fp = sys.stdout
 
@@ -93,9 +90,6 @@ for filepath in argv:
         ps.text((letter[0], letter[1]-30), VERSION)
         ps.image(letter, im)
         ps.end_document()
-
-        if printerArgs:
-            fp.close()
 
     except:
         print("cannot print image", end=' ')

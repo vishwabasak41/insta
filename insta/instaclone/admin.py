@@ -11,9 +11,12 @@ admin.site.register(SignUp,SUadmin)
 
 
 class LoginAdmin(admin.ModelAdmin):
-	list_display=["emailog"]
+	list_display=["username"]
 	model=login
 	form=Loginform
 
 
 admin.site.register(login,LoginAdmin)
+
+class upoad_admin(admin.ModelAdmin):
+	list_display=["user_name"]

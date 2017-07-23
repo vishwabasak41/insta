@@ -1,0 +1,29 @@
+<html>
+<head>
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+</head>
+<body>
+	<audio src="01_charli_xcx_boom_clap.mp3" class="audiolass"></audio>
+	<!-- <button class="buttonclass">play</button> -->
+	<i class="fa fa-play"></i>
+	<script src="jquery-3.1.0.js"></script>
+	<script type="text/javascript">
+		$('.buttonclass').on('click',function(){
+           var song=$('.audiolass');
+
+			console.log(song[0].paused)
+
+           if(song[0].paused==true){
+           console.log("song");
+           $('.buttonclass').text("paused");
+           song[0].play();
+           }
+           else
+           {
+           	$('.buttonclass').text("play");
+           	song[0].pause();
+           }
+		});
+	</script>
+</body>
+</html>
